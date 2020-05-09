@@ -7,6 +7,7 @@ from pickle_hash import deserialize, hash_code_hex
 
 BUFFER_SIZE = 1024
 
+
 class MyDict(dict):
     def __init__(self):
         self = dict()
@@ -15,12 +16,15 @@ class MyDict(dict):
         self[key] = value
         return key
 
+    def delete(self, key):
+        return self.pop(key)
+
+
 class UDPServer():
     def __init__(self, host, port):
         self.host = host
         self.port = int(port)
         self.db = MyDict()
-
 
     def extract_request(self, data_bytes):
         request = deserialize(data_bytes)
@@ -33,17 +37,19 @@ class UDPServer():
         response = self.handle_operation(operation, key, payload)
         return response
 
-
     def handle_operation(self, operation, key, value):
         if operation == 'GET':
-            print("now getting--------")
             return self.db.get(key)
         elif operation == 'PUT':
             return self.db.put(key, value)
+        elif operation == 'DELETE':
+            if self.db.delete(key):
+                return "Success"
+            else:
+                return "ID not exists!"
         else:
             print(f'Error: Invalid operation={operation}')
             return 'Not supported operation={}'.format(operation)
-
 
     def run(self):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -64,7 +70,7 @@ class UDPServer():
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print('Missing server index as argument. Usage: python3 cache_client.py [0-{}]'.format(len(NODES)-1))
+        print('Missing server index as argument. Usage: python3 cache_client.py [0-{}]'.format(len(NODES) - 1))
         sys.exit(2)
 
     node_index = int(sys.argv[1])

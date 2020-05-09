@@ -1,0 +1,21 @@
+INFO:root:[0.00000405s] fibonacci(0) -> 0 
+INFO:root:[0.00000405s] fibonacci(1) -> 1 
+INFO:root:[0.00022888s] fibonacci(2) -> 1 
+INFO:root:[cache_hit] fibonacci(1) -> 1 
+INFO:root:[cache_hit] fibonacci(2) -> 1 
+INFO:root:[0.00008106s] fibonacci(3) -> 2 
+INFO:root:[0.00039196s] fibonacci(4) -> 3 
+INFO:root:[cache_hit] fibonacci(3) -> 2 
+INFO:root:[cache_hit] fibonacci(4) -> 3 
+INFO:root:[0.00007510s] fibonacci(5) -> 5 
+INFO:root:[0.00054312s] fibonacci(6) -> 8 
+INFO:root:[0.00000477s] get_data(1) -> {'id': 1, 'value': 'Foo Bar - 1'} 
+INFO:root:[0.00000405s] get_data(2) -> {'id': 2, 'value': 'Foo Bar - 2'} 
+INFO:root:[0.00000381s] get_data(3) -> {'id': 3, 'value': 'Foo Bar - 3'} 
+INFO:root:[0.00000405s] get_data(4) -> {'id': 4, 'value': 'Foo Bar - 4'} 
+INFO:root:[cache_hit] get_data(1) -> {'id': 1, 'value': 'Foo Bar - 1'} 
+INFO:root:[cache_hit] get_data(2) -> {'id': 2, 'value': 'Foo Bar - 2'} 
+INFO:root:[cache_hit] get_data(3) -> {'id': 3, 'value': 'Foo Bar - 3'} 
+INFO:root:[cache_hit] get_data(4) -> {'id': 4, 'value': 'Foo Bar - 4'} 
+INFO:root:[0.00000620s] get_data(5) -> {'id': 5, 'value': 'Foo Bar - 5'} 
+INFO:root:[0.00000477s] get_data(6) -> {'id': 6, 'value': 'Foo Bar - 6'} 
