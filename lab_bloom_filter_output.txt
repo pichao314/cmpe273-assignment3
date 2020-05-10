@@ -1,0 +1,12 @@
+INFO:root:'bolster' is probably present!
+INFO:root:'accessable' is probably present!
+INFO:root:'twitter' is a false positive!
+INFO:root:'abundance' is probably present!
+INFO:root:'abundant' is probably present!
+INFO:root:'bonus' is probably present!
+INFO:root:'abounds' is probably present!
+INFO:root:'bonny' is probably present!
+INFO:root:'bloom' is probably present!
+INFO:root:'abound' is probably present!
+INFO:root:'facebook' is definitely not present!
+INFO:root:'blossom' is probably present!

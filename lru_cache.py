@@ -17,7 +17,7 @@ class DNode:
 
 
 class lru_cache:
-
+    # initialize cache
     def __init__(self, capacity: int):
         self.dict = dict()
         self.capacity = capacity
@@ -27,6 +27,7 @@ class lru_cache:
         self.head.next = self.tail
         self.tail.prev = self.head
 
+    # push a node into the top after head
     def push(self, node):
         node.next = self.head.next
         node.prev = self.head
@@ -34,21 +35,25 @@ class lru_cache:
         self.head.next = node
         return node
 
+    # remove a node
     def remove(self, node):
         prev = node.prev
         nxt = node.next
         prev.next = nxt
         nxt.prev = prev
 
+    # move a node to top
     def top(self, node):
         self.remove(node)
         self.push(node)
 
+    # pop a node before tail
     def pop(self):
         k = self.tail.prev.key
         self.remove(self.tail.prev)
         return k
 
+    # get a node by key, if not found return -1, otherwise move the node to top
     def get(self, key: int) -> int:
         if key not in self.dict:
             return -1
@@ -57,6 +62,7 @@ class lru_cache:
             self.top(node)
             return node.value
 
+    # put a node with key and value to top, pop LRU node from tail
     def put(self, key: int, value: int) -> None:
         node = DNode(key, value)
         if key not in self.dict:
